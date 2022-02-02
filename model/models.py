@@ -10,6 +10,8 @@ class BertClassifier(th.nn.Module):
         self.nb_class = nb_class
         self.tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
         self.bert_model = AutoModel.from_pretrained(pretrained_model)
+        self.embedding = self.bert_model.embeddings.to('cuda:0') 
+        self.encoder = self.bert_model.encoder.to('cuda:1') 
         self.feat_dim = list(self.bert_model.modules())[-2].out_features
         self.classifier = th.nn.Linear(self.feat_dim, nb_class)
 

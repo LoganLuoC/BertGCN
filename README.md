@@ -2,6 +2,17 @@
 This repo contains code for [BertGCN: Transductive Text Classification by Combining GCN and BERT](https://arxiv.org/abs/2105.05727).
 
 
+## Optimization
+- [ x ] 采用微博数据集，清洗成数据预处理格式
+- [ x ] 实现hfl/chinese-roberta-wwm-ext 模型与GCN模型的融合
+- [ x ] 参数调优，进行训练
+
+## Reference
+
+[*BertGCN*]](https://github.com/ZeroRin/BertGCN)
+[*BERT-wwm*] (https://github.com/ymcui/Chinese-BERT-wwm)
+
+
 ## Introduction
 
 In this work, we propose BertGCN, a model that combines large scale pretraining and transductive learning for text classification. BertGCN constructs a  heterogeneous graph over the dataset and represents documents as nodes using BERT representations. By jointly training the BERT and GCN modules within BertGCN, the proposed model is able to leverage the advantages of both worlds: large-scale pretraining which takes the advantage of the massive amount of raw data and transductive learning which jointly learns representations for both training data and unlabeled test data by propagating label influence through graph convolution. Experiments show that BertGCN achieves SOTA performances on a wide range of text classification datasets. 

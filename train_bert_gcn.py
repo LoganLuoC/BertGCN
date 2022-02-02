@@ -22,8 +22,8 @@ parser.add_argument('--max_length', type=int, default=128, help='the input lengt
 parser.add_argument('--batch_size', type=int, default=64)
 parser.add_argument('-m', '--m', type=float, default=0.7, help='the factor balancing BERT and GCN prediction')
 parser.add_argument('--nb_epochs', type=int, default=50)
-parser.add_argument('--bert_init', type=str, default='roberta-base',
-                    choices=['roberta-base', 'roberta-large', 'bert-base-uncased', 'bert-large-uncased'])
+parser.add_argument('--bert_init', type=str, default='hfl/chinese-roberta-wwm-ext',
+                    choices=['roberta-base', 'roberta-large', 'bert-base-uncased', 'bert-large-uncased', 'hfl/chinese-roberta-wwm-ext'])
 parser.add_argument('--pretrained_bert_ckpt', default=None)
 parser.add_argument('--dataset', default='20ng', choices=['20ng', 'R8', 'R52', 'ohsumed', 'mr'])
 parser.add_argument('--checkpoint_dir', default=None, help='checkpoint directory, [bert_init]_[gcn_model]_[dataset] if not specified')
@@ -33,7 +33,7 @@ parser.add_argument('--n_hidden', type=int, default=200, help='the dimension of 
 parser.add_argument('--heads', type=int, default=8, help='the number of attentionn heads for gat')
 parser.add_argument('--dropout', type=float, default=0.5)
 parser.add_argument('--gcn_lr', type=float, default=1e-3)
-parser.add_argument('--bert_lr', type=float, default=1e-5)
+parser.add_argument('--bert_lr', type=float, default=2e-5)
 
 args = parser.parse_args()
 max_length = args.max_length
